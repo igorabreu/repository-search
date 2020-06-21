@@ -2,25 +2,30 @@ import axios from "axios";
 
 const API_URL = `https://api.github.com/search/`;
 
-
-const API = {
-  searchRepositories: (term: string, sort?: string, order?: string) =>
-    methods.get('repositories', term, sort, order)
-
+interface QueryParams {
+  q: string;
+  sort?: string;
+  order?: string;
 }
 
-const methods = {
-  get: async (route: string, term: string, sort?: string, order?: string) => {
-
-    const params = {
-      ...(sort && { sort }),
-      ...(order && { order }),
-    };
-
-    return await axios.get(`${API_URL}${route}?q=${term}`, { params })
-      .then(response => response)
-      .catch(err => console.warn(err));
+const API = {
+  searchRepositories: (term: string, sort?: string, order?: string, callback = get) => {
+    const queryParams = { q: term, sort, order };
+    return callback('repositories', queryParams)
   }
+}
+
+const get = async (route: string, queryParams: QueryParams) => {
+
+  const params = {
+    ...(queryParams?.q && { q: queryParams.q }),
+    ...(queryParams?.sort && { sort: queryParams.sort }),
+    ...(queryParams?.order && { order: queryParams.order }),
+  };
+
+  return await axios.get(`${API_URL}${route}`, { params })
+    .then(response => response)
+    .catch(error => console.warn(error));
 }
 
 export default API;
