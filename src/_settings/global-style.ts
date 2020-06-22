@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import NotoSansRegular from '../assets/fonts/NotoSans.woff';
-import NotoSansRegular2 from '../assets/fonts/NotoSans.woff2';
-import NotoSansBold from '../assets/fonts/NotoSans-Bold.woff';
-import NotoSansBold2 from '../assets/fonts/NotoSans-Bold.woff2';
+import MuliRegular from '../assets/fonts/Muli-Regular.woff';
+import MuliRegular2 from '../assets/fonts/Muli-Regular.woff2';
+import MuliBold from '../assets/fonts/Muli-Bold.woff';
+import MuliBold2 from '../assets/fonts/Muli-Bold.woff2';
 import { theme } from './style-theme';
 
 const { colors } = theme;
@@ -14,24 +14,24 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-size: 16px;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Muli', sans-serif;
     min-height: 100%;
     font-weight: normal;
   }
 
   @font-face {
-    font-family: 'Noto Sans';
-    src: url('${NotoSansBold2}') format('woff2'),
-      url('${NotoSansBold}') format('woff');
+    font-family: 'Muli';
+    src: url('${MuliBold2}') format('woff2'),
+      url('${MuliBold}') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'Noto Sans';
-    src: url('${NotoSansRegular2}') format('woff2'),
-      url('${NotoSansRegular}') format('woff');
+    font-family: 'Muli';
+    src: url('${MuliRegular2}') format('woff2'),
+      url('${MuliRegular}') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -39,6 +39,6 @@ export const GlobalStyle = createGlobalStyle`
 
   ::selection {
     color: ${colors.white};
-    background: ${colors.darkGray};
+    background: ${colors.darkBlue};
   }
 `;

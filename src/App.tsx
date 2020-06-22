@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Search from 'pages/Search';
+import { Home, Repository } from 'pages';
 
 const App = () => (
   <Router>
     <Switch>
-      <Route exact path="/:term">
-        <Search />
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/repository/:id">
+        <Repository />
       </Route>
     </Switch>
   </Router>

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = `https://api.github.com/search/`;
 
-interface QueryParams {
+interface IQueryParams {
   q: string;
   sort?: string;
   order?: string;
@@ -11,11 +11,13 @@ interface QueryParams {
 const API = {
   searchRepositories: (term: string, sort?: string, order?: string, callback = get) => {
     const queryParams = { q: term, sort, order };
+
     return callback('repositories', queryParams)
   }
 }
 
-const get = async (route: string, queryParams: QueryParams) => {
+
+const get = async (route: string, queryParams: IQueryParams) => {
 
   const params = {
     ...(queryParams?.q && { q: queryParams.q }),
@@ -27,5 +29,6 @@ const get = async (route: string, queryParams: QueryParams) => {
     .then(response => response)
     .catch(error => console.warn(error));
 }
+
 
 export default API;
