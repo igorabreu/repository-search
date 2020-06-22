@@ -1,12 +1,7 @@
 import React from 'react';
-import { Lottie } from '@crello/react-lottie';
-import animation from 'assets/lottie/loading.json';
+import { LoadingContainer } from './styles';
+import loadingIcon from 'assets/icons/loading-icon.svg';
 
-const Loading: React.SFC = () => (
-  <Lottie
-    speed={1.5}
-    config={{ animationData: animation, loop: true }}
-  ></Lottie>
-);
+const Loading: React.SFC = () => <LoadingContainer src={loadingIcon} />;
 
 export default Loading;
