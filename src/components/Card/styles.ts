@@ -1,8 +1,10 @@
 import styled from "styled-components"
-import githubWhite from "assets/icons/github-white-icon.png"
-import githubBlack from "assets/icons/github-black-icon.png"
+import { fadeIn } from "styleguide/animations"
+import githubWhite from "assets/icons/github-white-icon.svg"
+import githubBlack from "assets/icons/github-black-icon.svg"
 import starWhite from "assets/icons/star-white-icon.svg"
 import starBlack from "assets/icons/star-black-icon.svg"
+
 
 export const Name = styled.div`
   text-transform: lowercase;
@@ -62,13 +64,12 @@ export const CardContainer = styled.div`
   padding: 40px 30px 20px 30px;
   box-sizing: border-box;
   box-shadow: 0px 14px 46px ${props => props.theme.colors.shadowColor};
+  animation: 0.4s ${fadeIn} cubic-bezier(0.12, 0, 0.39, 0) forwards;
 
   &:hover {
     color: ${props => props.theme.colors.white};
     background-color: ${props => props.theme.colors.darkBlue};
-  }
 
-  &:hover {
     ${Icon} {
       background: url(${githubWhite});
       background-size: cover;
@@ -79,4 +80,13 @@ export const CardContainer = styled.div`
         content: url(${starWhite});
       }
     }
+  }
+
+  @media (max-width: 375px) {
+    width: 340px;
+  }
+
+  @media (max-width: 320px) {
+    width: 300px;
+  }
 `

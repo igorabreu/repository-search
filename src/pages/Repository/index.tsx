@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, useHistory, useLocation } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { AppContext } from 'state';
-import { PageWrapper, Title } from 'components';
+import { PageWrapper, PageHeader, InfoCard } from 'components';
 
 export interface IRepository {
   name: string;
@@ -9,6 +9,16 @@ export interface IRepository {
   stargazers_count: number;
   id: number;
 }
+
+const mock = {
+  name: 'React Create App',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  stars: 2200,
+  forks: 100,
+  commits: 100,
+  pullRequests: 200,
+};
 
 const Repository: React.SFC = () => {
   const { id } = useParams();
@@ -45,12 +55,8 @@ const Repository: React.SFC = () => {
 
   return (
     <PageWrapper>
-      <Title>{repository?.name}</Title>
-      <div>{repository?.name}</div>
-      <div>{repository?.description}</div>
-      <div>{repository?.stargazers_count}</div>
-      <div>{repository?.id}</div>
-      <div onClick={onClickBackButton}>BACK</div>
+      <PageHeader onClickBack={onClickBackButton} title={repository?.name} />
+      <InfoCard {...repository} />
     </PageWrapper>
   );
 };

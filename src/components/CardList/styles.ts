@@ -28,4 +28,9 @@ export const Message = styled.div`
 
 export const ContentWrapper = styled.div`
   margin-top: 150px;
+
+  @media (max-width: 414px) {
+    margin-top: 100px;
+  }
 `
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { format } from './utils';
 import { CardContainer, Icon, Description, Stars, Name } from './styles';
 
 export interface IProps {
@@ -21,18 +22,12 @@ const Card: React.SFC<IProps> = ({
     history.push(`/repository/${id}`);
   };
 
-  const format = (fullDescription: string) => {
-    if (fullDescription.length > 100)
-      return `${fullDescription.substring(0, 100)} ...`;
-    return fullDescription;
-  };
-
   return (
     <CardContainer onClick={onClickItem}>
       <Icon />
       <Name>{name}</Name>
-      <Description>{description && format(description)}</Description>
-      <Stars>{new Intl.NumberFormat().format(stargazers_count)}</Stars>
+      <Description>{description && format.text(description)}</Description>
+      <Stars>{stargazers_count && format.number(stargazers_count)}</Stars>
     </CardContainer>
   );
 };

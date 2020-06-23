@@ -5,6 +5,8 @@ export const theme = {
     white: '#fff',
     lightGray: '#F1F5F8',
     mediumGray: '#FAFBFC',
+    red: '#f56262',
+    cyan: '#3eb8a8',
     shadowColor: 'rgba(102, 114, 129, 0.3)'
   },
   fontFamily: {

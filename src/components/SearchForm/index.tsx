@@ -2,40 +2,44 @@ import React, { useState, useContext } from 'react';
 import API from 'services/API';
 import { Title } from 'components';
 import { AppContext } from 'state';
-import { Form, SearchInput } from './styles';
-
-export interface IApiResponse {
-  data: {
-    [items: string]: IRepository[];
-  };
-}
-
-export interface IRepository {
-  name: string;
-  id: number;
-  description: string;
-  stargazers_count: number;
-}
+import { IApiResponse } from './types';
+import {
+  onSearchDispatches,
+  onErrorDispatches,
+  onSetResultDispaches,
+} from './utils';
+import searchIcon from 'assets/icons/search-icon.svg';
+import {
+  Form,
+  SearchContainer,
+  Input,
+  ErrorMessage,
+  Button,
+  Icon,
+} from './styles';
 
 const SearchForm: React.SFC = () => {
   const { dispatch } = useContext(AppContext);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [emptyError, setEmptyError] = useState<boolean>(false);
 
-  const requestData = async (term: string) => {
+  const fetchData = async (term: string) => {
     const result = (await API.searchRepositories(
       term,
       'stars',
       'desc'
     )) as IApiResponse;
 
-    dispatch({ type: 'REPOSITORIES_FETCHED', payload: result.data.items });
     dispatch({ type: 'SET_LOADING', payload: false });
-    !result.data.items.length &&
-      dispatch({ type: 'SET_NO_RESULTS', payload: true });
+
+    if (!result) return onErrorDispatches(dispatch);
+
+    onSetResultDispaches(result, dispatch);
   };
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
+    setEmptyError(false);
     setSearchTerm(value);
   };
 
@@ -43,24 +47,29 @@ const SearchForm: React.SFC = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    dispatch({ type: 'SET_LOADING', payload: true });
-    dispatch({ type: 'SET_NO_RESULTS', payload: false });
-    requestData(searchTerm);
+    if (!searchTerm.length) return setEmptyError(true);
+    onSearchDispatches(dispatch);
+    fetchData(searchTerm);
   };
 
   return (
     <Form>
       <Title>Github repositories:</Title>
-      <SearchInput
-        type="text"
-        placeholder="Search here"
-        onChange={handleTextChange}
-        value={searchTerm}
-        autoFocus
-      />
-      <button type="submit" onClick={handleSubmit}>
-        Q
-      </button>
+      <SearchContainer>
+        <Input
+          type="text"
+          placeholder="Search here"
+          onChange={handleTextChange}
+          value={searchTerm}
+          autoFocus
+        />
+        <Button type="submit" onClick={handleSubmit}>
+          <Icon src={searchIcon} />
+        </Button>
+      </SearchContainer>
+      {emptyError && (
+        <ErrorMessage>Please provide at least one word</ErrorMessage>
+      )}
     </Form>
   );
 };

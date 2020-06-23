@@ -1,13 +1,6 @@
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
+import { rotate } from "styleguide/animations"
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`
 
 export const LoadingContainer = styled.img`
   width: 50px;
