@@ -6,7 +6,7 @@ Github repository search using [Github API](https://developer.github.com/v3/).
 
 - [TypeScript](https://www.typescriptlang.org/) - TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language.
 
-- [React Create App](https://github.com/facebook/create-react-app) - Apollo Server is way to build a production-ready, self-documenting API for GraphQL clients, using data from any source.
+- [React Create App](https://github.com/facebook/create-react-app) - Popular toolchain for building simple apps with React.
 
 - [Jest](https://jestjs.io/) - A JavaScript Testing Framework with a focus on simplicity
 
