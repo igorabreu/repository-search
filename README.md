@@ -6,7 +6,7 @@ Github repository search using [Github API](https://developer.github.com/v3/).
 
 - [TypeScript](https://www.typescriptlang.org/) - TypeScript is a strict syntactical superset of JavaScript and adds optional static typing to the language.
 
-- [React Create App](https://github.com/facebook/create-react-app) - Popular toolchain for building simple apps with React.
+- [Reac](https://reactjs.org/) - React is an open-source JavaScript library for building user interfaces.
 
 - [Jest](https://jestjs.io/) - A JavaScript Testing Framework with a focus on simplicity
 
@@ -20,7 +20,7 @@ Github repository search using [Github API](https://developer.github.com/v3/).
 ### Installing
 
 - Clone this repository
-- Install dependencies running:
+- Install dependencies:
 
 ```
 $ yarn
@@ -28,7 +28,7 @@ $ yarn
 
 ## Development
 
-- To start development environment run:
+- To start development environment:
 
 ```
 $ yarn start
@@ -50,7 +50,7 @@ $ yarn test:coverage
 
 ## Build Production
 
-To build production distribution, run:
+To build production distribution:
 
 ```
 $ yarn build
