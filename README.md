@@ -8,6 +8,8 @@ Github repository search using [Github API](https://developer.github.com/v3/).
 
 - [Reac](https://reactjs.org/) - React is an open-source JavaScript library for building user interfaces.
 
+- [Styled-Components](https://styled-components.com/) - CSS-in-JS library to build components.
+
 - [Jest](https://jestjs.io/) - A JavaScript Testing Framework with a focus on simplicity
 
 ### Prerequisites
