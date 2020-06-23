@@ -10,16 +10,6 @@ export interface IRepository {
   id: number;
 }
 
-const mock = {
-  name: 'React Create App',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  stars: 2200,
-  forks: 100,
-  commits: 100,
-  pullRequests: 200,
-};
-
 const Repository: React.SFC = () => {
   const { id } = useParams();
   const history = useHistory();

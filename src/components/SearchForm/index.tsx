@@ -63,7 +63,7 @@ const SearchForm: React.SFC = () => {
           value={searchTerm}
           autoFocus
         />
-        <Button type="submit" onClick={handleSubmit}>
+        <Button data-testid="button" type="submit" onClick={handleSubmit}>
           <Icon src={searchIcon} />
         </Button>
       </SearchContainer>

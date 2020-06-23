@@ -9,10 +9,16 @@ export const Header = styled.div`
   align-items: flex-start;
   height: 100px;
 
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 110px;
+  }
+
   @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
-    height: 75px;
     justify-content: flex-end;
   }
 `

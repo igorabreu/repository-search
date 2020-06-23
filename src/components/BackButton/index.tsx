@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const Loading: React.SFC<IProps> = ({ onClick }) => (
-  <Back src={iconBack} onClick={onClick} />
+  <Back data-testid="button" src={iconBack} onClick={onClick} />
 );
 
 export default Loading;

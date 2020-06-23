@@ -11,7 +11,7 @@ export const ListContainer = styled.div<IListContainer>`
   grid-row-gap: 1rem;
   margin-top: 60px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1250px) {
     grid-template-columns: ${props => props.noCards ? '1fr' : '1fr 1fr'}
   }
 
