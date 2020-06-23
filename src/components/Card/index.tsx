@@ -24,7 +24,8 @@ const Card: React.SFC<IProps> = ({
 
   return (
     <CardContainer onClick={onClickItem}>
-      <Icon />'<Name>{name}</Name>
+      <Icon />
+      <Name>{name}</Name>
       <Description>{description && format.text(description, 100)}</Description>
       <Stars>{stargazers_count && format.number(stargazers_count)}</Stars>
     </CardContainer>

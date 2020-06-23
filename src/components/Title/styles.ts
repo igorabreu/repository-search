@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const TitleContainer = styled.div`
   font-size: 2.5rem;
   font-weight: bold;
-  text-overflow: ellipsis;
   color: ${props => props.theme.colors.darkBlue};
 
   @media (max-width: 1200px) {
