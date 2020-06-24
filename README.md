@@ -1,4 +1,4 @@
-# Anova Search
+# Repository Search
 
 Github repository search using [Github API](https://developer.github.com/v3/).
 
